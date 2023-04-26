@@ -22,8 +22,9 @@ jobs:
       - name: Test code
         run: npm run test
       - name: Output env var
-        run: echo "${{ env.ROSSO }}"
+        run: echo "${{ vars.ROSSO }}"
   build:
+    environment: prod
     needs: test
     runs-on: ubuntu-latest
     outputs:
@@ -50,6 +51,8 @@ jobs:
           path: |
             dist
             package.json
+      - name: Output env var
+        run: echo "${{ vars.ROSSO }}"
   deploy:
     needs: build
     runs-on: ubuntu-latest
