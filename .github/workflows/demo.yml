@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   test:
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -20,6 +21,8 @@ jobs:
         run: npm run lint
       - name: Test code
         run: npm run test
+      - name: Output env var
+        run: echo "${{ env.ROSSO }}""
   build:
     needs: test
     runs-on: ubuntu-latest
