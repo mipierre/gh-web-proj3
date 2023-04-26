@@ -22,7 +22,7 @@ jobs:
       - name: Test code
         run: npm run test
       - name: Output env var
-        run: echo "${{ env.ROSSO }}""
+        run: echo "${{ env.ROSSO }}"
   build:
     needs: test
     runs-on: ubuntu-latest
